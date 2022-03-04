@@ -68,5 +68,5 @@ global.Buffer = Buffer;
 global.process = {
   env: { DEBUG: undefined },
   version: '',
-  nextTick: require('next-tick'),
+  //nextTick: require('next-tick'),
 } as any;

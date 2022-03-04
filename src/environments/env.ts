@@ -14,7 +14,7 @@ export const defaultEnv: Env = {
   production: false,
   env: 'dev',
   moralis: {
-    appId: 'MORALIS_APPLICATION_ID',
-    serverUrl: 'MORALIS_SERVER_URL'
+    appId: 'RHWwPYmy8Lrut3asx7lshzQc2HEuSkprt1sEVUZO',
+    serverUrl: 'https://vpcnu02rqahz.moralishost.com:2053/server'
   }
 };

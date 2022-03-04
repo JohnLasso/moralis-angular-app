@@ -28,8 +28,8 @@ export class AppComponent implements OnInit {
     (provider === 'metamask'
       ? Moralis.Web3.authenticate()
       : Moralis.Web3.authenticate({ provider }))
-          .then((loggedInUser) => this.setLoggedInUser(loggedInUser))
-          .catch((e) => console.error(`Moralis '${provider}' login error:`, e));
+          .then((loggedInUser: User | undefined) => this.setLoggedInUser(loggedInUser))
+          .catch((e: any) => console.error(`Moralis '${provider}' login error:`, e));
   }
 
   logout() {
