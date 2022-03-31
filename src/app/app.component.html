@@ -1,18 +1,3 @@
 <app-navbar></app-navbar>
 <app-mainpage></app-mainpage>
-  <!-- Login / Logout -->
-    <ng-container *ngIf="user; else needLogin">
-      <!-- Logout -->
-      <button (click)="logout()">Logout</button>
-    </ng-container>
-    <ng-template #needLogin>
-      <!-- Logins -->
-      <button (click)="login()">Login with Metamask</button>
-      <button (click)="login('walletconnect')">
-        Login with WalletConnect
-      </button>
-    </ng-template>
-
-  <!-- User -->
-  <app-user [user]="user"></app-user>
 <router-outlet></router-outlet>

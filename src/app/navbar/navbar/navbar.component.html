@@ -1,36 +1,28 @@
 <nav class="navbar navbar--primary navbar-expand-lg navbar-light bg-white">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <img class="logo header-logo-light" alt="Polkadot" src="/assets/img/header.svg">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img class="logo header-logo-light" alt="Polkadot" src="/assets/img/header.svg">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div id="main-nav" class="collapse navbar-collapse justify-content-end navMenu">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link h5" href="/technology" style="--dot-animation-duration:0.250923s;">Be a freelancer</a></li>
-        <li class="nav-item"><a class="nav-link h5" href="/community" style="--dot-animation-duration:0.260148s;">Explore</a></li>
-        <li class="nav-item"><a class="nav-link h5" href="/about" style="--dot-animation-duration:0.166052s;">About</a></li>
-        <li class="nav-item"><a class="nav-link h5" href="/blog" style="--dot-animation-duration:0.138376s;">Blog</a></li>
-        <li class="nav-item"><a class="nav-link h5" href="/build" style="--dot-animation-duration:0.149446s;">Ecosystem</a></li>
-        <li class="nav-item"><a class="nav-link h5" href="/contact" style="--dot-animation-duration:0.199262s;">Contact</a></li>
-      </ul>
+        <div id="main-nav" class="collapse navbar-collapse justify-content-end navMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link h5" href="/technology" style="--dot-animation-duration:0.250923s;">Be a freelancer</a></li>
+                <li class="nav-item"><a class="nav-link h5" href="/community" style="--dot-animation-duration:0.260148s;">Explore</a></li>
+                <li class="nav-item"><a class="nav-link h5" href="/about" style="--dot-animation-duration:0.166052s;">About</a></li>
+                <li class="nav-item"><a class="nav-link h5" href="/blog" style="--dot-animation-duration:0.138376s;">Blog</a></li>
+                <li class="nav-item"><a class="nav-link h5" href="/build" style="--dot-animation-duration:0.149446s;">Ecosystem</a></li>
+            </ul>
+        </div>
+        <div class="ms-4">
+            <ng-container *ngIf="userOb | async as user; else needLogin">
+                <span><button class="btn btn-primary btn-lg" (click)="logout()">Logout</button></span>
+                <span>{{ user?.attributes?.ethAddress }}</span>
+            </ng-container>
+            <ng-template #needLogin>
+                <span><button class="btn btn-primary btn-lg"(click)="login()">Login with Metamask</button></span>
+            </ng-template>
+        </div>
     </div>
-    <button class="ms-5 btn btn-secondary btn-lg m-2 aos-init aos-animate">
-      Register
-    </button>
-    <app-user [user]="auth.user"></app-user>
-
-    <ng-container *ngIf="auth.user; else needLogin">
-      <!-- Logout -->
-      <button class="btn btn-secondary btn-lg m-2 aos-init aos-animate"  (click)="this.auth.logout()">Logout</button>
-    </ng-container>
-    <ng-template #needLogin>
-      <!-- Logins -->
-      <button class="btn btn-secondary btn-lg m-2 aos-init aos-animate" (click)="this.auth.login()">Login with Metamask</button>
-    </ng-template>
-
-    <!-- User -->
-  </div>
 </nav>
-

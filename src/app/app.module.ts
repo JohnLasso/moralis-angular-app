@@ -7,6 +7,8 @@ import {ExploreComponent} from "./explore/explore/explore.component";
 import {MainpageComponent} from "./mainpage/mainpage/mainpage.component";
 import {NavbarComponent} from "./navbar/navbar/navbar.component";
 import {AuthService} from "./services/auth.service";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import {AuthService} from "./services/auth.service";
     AppComponent, UserComponent,
     ExploreComponent,
     MainpageComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
